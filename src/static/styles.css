@@ -1,0 +1,138 @@
+body {
+  font-family: "Itim", cursive;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  width: 100px;
+}
+
+#answers2 input {
+  width: 150px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+button:hover {
+  background-color: #00a2ff;
+  transform: scale(1.05);
+}
+
+/* Bảng Bài 1: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table1 {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table1,
+#table1 th,
+#table1 td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table1 th,
+#table1 td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table1 th:first-child,
+#table1 td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}
+
+/* Bảng Bài 3: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table3 {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table3,
+#table3 th,
+#table3 td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table3 th,
+#table3 td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table3 th:first-child,
+#table3 td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}
+
+/* Bảng Bài 1: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table4 {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table4,
+#table4 th,
+#table4 td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table4 th,
+#table4 td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table4 th:first-child,
+#table4 td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}

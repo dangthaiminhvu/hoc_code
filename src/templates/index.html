@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trình tạo bài tập Toán học</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Trình tạo bài tập Toán học</h1>
+    <!-- Bài 1 -->
+    <section id="bai1">
+      <h2>Bài 1: Cho bảng sau, hãy tính giá trị x̄, s², s'² và s'</h2>
+      <div>
+        <label for="num-values1">Số lượng giá trị:</label>
+        <input type="number" id="num-values1" value="5" min="2" />
+        <button id="generate1">Tạo Bài 1</button>
+      </div>
+      <table id="table1">
+        <thead>
+          <tr>
+            <th>X (giá trị)</th>
+            <!-- các cột X_i được thêm động -->
+          </tr>
+          <tr>
+            <th>n (tần suất)</th>
+            <!-- các cột n_i được thêm động -->
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="answers1">
+        <label for="ans1-0">x̄ =</label><input type="text" id="ans1-0" />
+        <label for="ans1-1">s² =</label><input type="text" id="ans1-1" />
+        <label for="ans1-2">s'² =</label><input type="text" id="ans1-2" />
+        <label for="ans1-3">s' =</label><input type="text" id="ans1-3" />
+        <button id="check1">Kiểm tra Bài 1</button>
+      </div>
+    </section>
+
+    <!-- Bài 2 -->
+    <h2>Bài 2: Tính toán phân bố chuẩn trong thống kê</h2>
+    <button id="generate2">Tạo Bài 2</button>
+    <div id="exercise2-question"></div>
+    <div id="answers2">
+      <form id="form2">
+        <div><label>a)</label><input type="text" id="ans2-0" /></div>
+        <div><label>b)</label><input type="text" id="ans2-1" /></div>
+        <div><label>c)</label><input type="text" id="ans2-2" /></div>
+        <div><label>d)</label><input type="text" id="ans2-3" /></div>
+        <div><label>e)</label><input type="text" id="ans2-4" /></div>
+        <div><label>f)</label><input type="text" id="ans2-5" /></div>
+        <div><label>g)</label><input type="text" id="ans2-6" /></div>
+        <div><label>h)</label><input type="text" id="ans2-7" /></div>
+        <div><label>i)</label><input type="text" id="ans2-8" /></div>
+        <button type="button" id="check2">Kiểm tra Bài 2</button>
+      </form>
+    </div>
+
+    <!-- Bài 3: Ước lượng điểm -->
+    <section id="bai3">
+      <h2>Bài 3: Ước lượng điểm cho EX và DX</h2>
+      <div>
+        <label for="num-values3">Số lượng giá trị:</label>
+        <input type="number" id="num-values3" value="5" min="2" />
+        <button id="generate3">Tạo Bài 3</button>
+      </div>
+      <table id="table3">
+        <thead>
+          <tr>
+            <th>X (giá trị)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <thead>
+          <tr>
+            <th>n (tần suất)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="answers3">
+        <label>a) Ước lượng điểm không chệch của EX =</label
+        ><input type="text" id="ans3-0" />
+        <label>b) Ước lượng điểm không chệch của DX =</label
+        ><input type="text" id="ans3-1" />
+        <button id="check3">Kiểm tra Bài 3</button>
+      </div>
+    </section>
+
+  <!-- Bài 4: Ước lượng khoảng -->
+  <section id="bai4">
+    <h2>Bài 4: Ước lượng khoảng cho EX và DX</h2>
+    <div>
+      <label for="num-values4">Số lượng giá trị:</label>
+      <input type="number" id="num-values4" value="5" min="2" />
+      <button id="generate4">Tạo Bài 4</button>
+    </div>
+    <table id="table4">
+        <thead>
+          <tr>
+            <th>X (giá trị)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <thead>
+          <tr>
+            <th>n (tần suất)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    <!-- Đề bài và các ô input để người dùng nhập -->
+    <div id="desc4">
+      <p><strong>Câu a)</strong> Ước lượng khoảng cho EX với độ tin cậy γ₁ = <span id="gamma1"></span>, δ = <span id="delta"></span></p>
+      <p>¯x = <input type="text" id="mean-input" /> , z₀ = <input type="text" id="z0-input" /></p>
+      <p>Vậy: <input type="text" id="ci-a-low" /> &lt; EX &lt; <input type="text" id="ci-a-high" /></p>
+
+      <p><strong>Câu b)</strong></strong> Ước lượng khoảng cho EX với độ tin cậy γ₂ = <span id="gamma2"></span></p>
+      <p>s' = <input type="text" id="sprime-input" /> , t₀ = <input type="text" id="t0-input" /></p>
+      <p>Kết quả: <input type="text" id="ci2-low" /> &lt; EX &lt; <input type="text" id="ci2-high" /></p>
+
+      <p><strong>Câu c)</strong> Ước lượng khoảng cho DX với độ tin cậy γ₃ = <span id="gamma3"></span></p>
+      <p>α₁ = <input type="text" id="alpha1-input" /> , α₂ = <input type="text" id="alpha2-input" /> , s² = <input type="text" id="s2-input" /></p>
+      <p>Kết quả: <input type="text" id="ci3-low" /> &lt; DX &lt; <input type="text" id="ci3-high" /></p>
+
+      <button id="check4">Kiểm tra Bài 4</button>
+    </div>
+  </section>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
