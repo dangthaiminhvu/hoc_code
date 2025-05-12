@@ -1,4 +1,4 @@
-# Trình tạo bài tập Toán học
+# Trình tạo bài tập XÁC SUẤT THỐNG KÊ
 
 ## Tổng quan
 
