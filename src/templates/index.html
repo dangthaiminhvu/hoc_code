@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trình tạo bài tập Toán học</title>
+    <title>Trình tạo bài tập xác suất thống kê</title>
     <link rel="stylesheet" href="/static/styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-    <h1>Trình tạo bài tập Toán học</h1>
+    <h1>Trình tạo bài tập xác suất thống kê</h1>
     <!-- Bài 1 -->
     <section id="bai1">
       <h2>Bài 1: Cho bảng sau, hãy tính giá trị x̄, s², s'² và s'</h2>
@@ -92,45 +92,196 @@
       </div>
     </section>
 
-  <!-- Bài 4: Ước lượng khoảng -->
-  <section id="bai4">
-    <h2>Bài 4: Ước lượng khoảng cho EX và DX</h2>
-    <div>
-      <label for="num-values4">Số lượng giá trị:</label>
-      <input type="number" id="num-values4" value="5" min="2" />
-      <button id="generate4">Tạo Bài 4</button>
-    </div>
-    <table id="table4">
-        <thead>
-          <tr>
-            <th>X (giá trị)</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-        <thead>
-          <tr>
-            <th>n (tần suất)</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    <!-- Đề bài và các ô input để người dùng nhập -->
-    <div id="desc4">
-      <p><strong>Câu a)</strong> Ước lượng khoảng cho EX với độ tin cậy γ₁ = <span id="gamma1"></span>, δ = <span id="delta"></span></p>
-      <p>¯x = <input type="text" id="mean-input" /> , z₀ = <input type="text" id="z0-input" /></p>
-      <p>Vậy: <input type="text" id="ci-a-low" /> &lt; EX &lt; <input type="text" id="ci-a-high" /></p>
+    <!-- Bài 4: Ước lượng khoảng -->
+    <section id="bai4">
+      <h2>Bài 4: Ước lượng khoảng cho EX và DX với X ∈ N(a,δ²)</h2>
+      <div>
+        <label for="num-values4">Số lượng giá trị:</label>
+        <input type="number" id="num-values4" value="5" min="2" />
+        <button id="generate4">Tạo Bài 4</button>
+      </div>
+      <table id="table4">
+          <thead>
+            <tr>
+              <th>X (giá trị)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <thead>
+            <tr>
+              <th>n (tần suất)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      <div id="desc4">
+        <p><strong>Câu a)</strong> Ước lượng khoảng cho EX với độ tin cậy γ₁ = <span id="gamma1"></span>, δ = <span id="delta"></span></p>
+        <p>¯x = <input type="text" id="mean-input" /> , z₀ = <input type="text" id="z0-input" /></p>
+        <p>Vậy: <input type="text" id="ci-a-low" /> &lt; EX &lt; <input type="text" id="ci-a-high" /></p>
 
-      <p><strong>Câu b)</strong></strong> Ước lượng khoảng cho EX với độ tin cậy γ₂ = <span id="gamma2"></span></p>
-      <p>s' = <input type="text" id="sprime-input" /> , t₀ = <input type="text" id="t0-input" /></p>
-      <p>Kết quả: <input type="text" id="ci2-low" /> &lt; EX &lt; <input type="text" id="ci2-high" /></p>
+        <p><strong>Câu b)</strong></strong> Ước lượng khoảng cho EX với độ tin cậy γ₂ = <span id="gamma2"></span></p>
+        <p>s' = <input type="text" id="sprime-input" /> , t₀ = <input type="text" id="t0-input" /></p>
+        <p>Kết quả: <input type="text" id="ci2-low" /> &lt; EX &lt; <input type="text" id="ci2-high" /></p>
 
-      <p><strong>Câu c)</strong> Ước lượng khoảng cho DX với độ tin cậy γ₃ = <span id="gamma3"></span></p>
-      <p>α₁ = <input type="text" id="alpha1-input" /> , α₂ = <input type="text" id="alpha2-input" /> , s² = <input type="text" id="s2-input" /></p>
-      <p>Kết quả: <input type="text" id="ci3-low" /> &lt; DX &lt; <input type="text" id="ci3-high" /></p>
+        <p><strong>Câu c)</strong> Ước lượng khoảng cho DX với độ tin cậy γ₃ = <span id="gamma3"></span></p>
+        <p>α₁ = <input type="text" id="alpha1-input" /> , α₂ = <input type="text" id="alpha2-input" /> , s² = <input type="text" id="s2-input" /></p>
+        <p>Kết quả: <input type="text" id="ci3-low" /> &lt; DX &lt; <input type="text" id="ci3-high" /></p>
 
-      <button id="check4">Kiểm tra Bài 4</button>
-    </div>
-  </section>
+        <button id="check4">Kiểm tra Bài 4</button>
+      </div>
+    </section>
+
+    <!-- Bài 5: Kiểm định giả thuyết về giá trị trung bình -->
+    <section id="bai5">
+      <h2>Bài 5: Kiểm định giả thuyết về giá trị trung bình</h2>
+      <div>
+        <label for="num-values5">Số lượng giá trị:</label>
+        <input type="number" id="num-values5" value="5" min="2" />
+        <button id="generate5">Tạo Bài 5</button>
+      </div>
+      <div id="desc5" style="display:none; margin-top:1em;">
+        <!-- Câu a -->
+        <p><strong>Câu a)</strong> Với δ = <span id="delta5"></span> và mức ý nghĩa α = <span id="alpha5"></span></p>
+        <p>Hãy kiểm định EX <span id="relation5"></span> <span id="a05"></span></p>
+        <table id="table5">
+          <thead>
+            <tr><th>X (giá trị)</th></tr>
+            <tr><th>n (tần suất)</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div style="margin-top:1em;">
+          <label for="zqs-5a">z_qs = </label>
+          <input type="text" id="zqs-5a" />
+          <label for="z0-5a" style="margin-left:1em;">z₀ = </label>
+          <input type="text" id="z0-5a" />
+          <label for="conclusion-5a" style="margin-left:1em;">Kết luận:</label>
+          <select id="conclusion-5a">
+            <option value="reject_H">Bác bỏ H (chấp nhận K)</option>
+            <option value="accept_H">Bác bỏ K (chấp nhận H)</option>
+          </select>
+        </div>
+
+        <hr style="margin:2em 0;" />
+
+        <!-- Câu b -->
+        <p><strong>Câu b)</strong> Với mức ý nghĩa α = <span id="alpha5b"></span></p>
+        <p>Hãy kiểm định EX <span id="relation5b"></span> <span id="a05b"></span></p>
+        <table id="table5b">
+          <thead>
+            <tr><th>X (giá trị)</th></tr>
+            <tr><th>n (tần suất)</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div style="margin-top:1em;">
+          <label for="tqs-5b">t_qs = </label>
+          <input type="text" id="tqs-5b" />
+          <label for="t0-5b" style="margin-left:1em;">t₀ = </label>
+          <input type="text" id="t0-5b" />
+          <label for="conclusion-5b" style="margin-left:1em;">Kết luận:</label>
+          <select id="conclusion-5b">
+            <option value="reject_H">Bác bỏ H (chấp nhận K)</option>
+            <option value="accept_H">Bác bỏ K (chấp nhận H)</option>
+          </select>
+        </div>
+      </div>
+      <button id="check5" style="margin-left:1em; display:none;">Kiểm tra Bài 5</button>
+    </section>
+
+    <!-- Bài 6: Kiểm định tỉ lệ điểm F -->
+    <section id="bai6">
+      <h2>Bài 6: Kiểm định tỉ lệ điểm F</h2>
+      <div>
+        <button id="generate6">Tạo Bài 6</button>
+        <button id="check6" style="display:none; margin-left:1em;">Kiểm tra Bài 6</button>
+      </div>
+      <div id="desc6" style="display:none; margin-top:1em;">
+        <p>Hàng năm, tỉ lệ điểm F là <span id="p6">...</span>. Năm nay, tỉ lệ có thể sẽ <span id="relation6">...</span></p>
+        <p>Hãy kiểm định giả thuyết trên với mức ý nghĩa <span id="alpha6">...</span></p>
+        <p>Biết rằng khi lấy <span id="n6">...</span> sinh viên thì thấy trong đó có <span id="m6">...</span> sinh viên bị điểm F.</p>
+
+        <!-- Phần nhập kết quả -->
+        <div style="margin-top:1em;">
+          <label for="zqs6">z_qs = </label>
+          <input type="text" id="zqs6" />
+          <label for="z06" style="margin-left:1em;">z₀ = </label>
+          <input type="text" id="z06" />
+          <label for="conclusion6" style="margin-left:1em;">Kết luận:</label>
+          <select id="conclusion6">
+            <option value="reject_H">Bác bỏ H, chấp nhận K</option>
+            <option value="accept_H">Bác bỏ K, chấp nhận H</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bài 8: Kiểm định phù hợp Chi‑bình phương -->
+    <section id="bai8">
+      <h2>Bài 8: Kiểm định phù hợp Chi‑bình phương</h2>
+      <div>
+        <label for="num-values8">Số lượng biến cố:</label>
+        <input type="number" id="num-values8" value="5" min="2" />
+        <button id="generate8">Tạo Bài 8</button>
+        <button id="check8" style="display:none; margin-left:1em;">Kiểm tra Bài 8</button>
+      </div>
+      <div id="desc8" style="display:none; margin-top:1em;">
+        <p>Cho biến cố A có phân phối đầy đủ.</p>
+        <p>Bảng tần suất quan sát:</p>
+        <table id="table8">
+          <thead>
+            <tr><th>A (biến cố)</th></tr>
+            <tr><th>n (tần suất)</th></tr>
+          </thead>
+        </table>
+        <p>Với mức ý nghĩa α = <span id="alpha8"></span>. Hãy kiểm định giả thuyết:</p>
+        <p id="p8-list">...</p> 
+        <div style="margin-top:1em;">
+          <label for="chiqs8">χ_qs²= </label>
+          <input type="text" id="chiqs8" />
+          <label for="chi08" style="margin-left:1em;">χ₀² = </label>
+          <input type="text" id="chi08" />
+          <label for="conclusion8" style="margin-left:1em;">Kết luận:</label>
+          <select id="conclusion8">
+            <option value="reject_H">Bác bỏ H</option>
+            <option value="accept_H">Chấp nhận H</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bài 8 b: Phù hợp phân bố -->
+    <section id="bai8b">
+      <h2>Bài 8 b: Kiểm định phân bố của biến ngẫu nhiên</h2>
+      <div>
+        <label for="num-values8b">Số lượng khoảng:</label>
+        <input type="number" id="num-values8b" value="5" min="2" />
+        <button id="generate8b">Tạo Bài 8b</button>
+        <button id="check8b" style="display:none; margin-left:1em;">Kiểm tra Bài 8b</button>
+      </div>
+      <div id="desc8b" style="display:none; margin-top:1em;">
+        <p>Bảng dữ liệu:</p>
+        <table id="table8b">
+          <thead>
+            <tr><th>X (giá trị)</th></tr>
+            <tr><th>n (tần suất)</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p>Với mức ý nghĩa α = <span id="alpha8b">...</span>% hãy kiểm định giả thuyết X <span id="h8b">...</span>.</p>
+        <div style="margin-top:1em;">
+          <label for="chiqs8b">χ_qs² = </label>
+          <input type="text" id="chiqs8b" />
+          <label for="chi08b" style="margin-left:1em;">χ₀² = </label>
+          <input type="text" id="chi08b" />
+          <label for="conclusion8b" style="margin-left:1em;">Kết luận:</label>
+          <select id="conclusion8b">
+            <option value="reject_H">Bác bỏ H</option>
+            <option value="accept_H">Chấp nhận H</option>
+          </select>
+        </div>
+      </div>
+    </section>
 
     <script src="/static/script.js"></script>
   </body>

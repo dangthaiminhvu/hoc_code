@@ -110,7 +110,7 @@ button:hover {
   color: white; /* chữ cột đầu trắng */
 }
 
-/* Bảng Bài 1: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+/* Bảng Bài 4: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
 #table4 {
   border-collapse: collapse;
 }
@@ -133,6 +133,114 @@ button:hover {
 /* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
 #table4 th:first-child,
 #table4 td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}
+
+/* Bảng Bài 5: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table5 {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table5,
+#table5 th,
+#table5 td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table5 th,
+#table5 td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table5 th:first-child,
+#table5 td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}
+
+/* Bảng Bài 5b: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table5b {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table5b,
+#table5b th,
+#table5b td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table5b th,
+#table5b td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table5b th:first-child,
+#table5b td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}
+
+/* Bảng Bài 8: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table8 {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table8,
+#table8 th,
+#table8 td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table8 th,
+#table8 td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table8 th:first-child,
+#table8 td:first-child {
+  background-color: #4caf50;
+  color: white; /* chữ cột đầu trắng */
+}
+
+/* Bảng Bài 8b: border đen, chỉ cột đầu nền xanh, các cột sau nền trắng */
+#table8b {
+  border-collapse: collapse;
+}
+
+/* Viền đen cho bảng và ô */
+#table8b,
+#table8b th,
+#table8b td {
+  border: 1px solid black;
+  padding: 8px;
+  color: black; /* chữ màu đen mặc định */
+}
+
+/* Mặc định nền trắng cho tất cả ô */
+#table8b th,
+#table8b td {
+  background-color: white;
+}
+
+/* Chỉ cột đầu (th và td) nền xanh và chữ trắng */
+#table8b th:first-child,
+#table8b td:first-child {
   background-color: #4caf50;
   color: white; /* chữ cột đầu trắng */
 }

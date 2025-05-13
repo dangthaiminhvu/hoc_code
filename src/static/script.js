@@ -303,3 +303,341 @@ document.getElementById("check4").addEventListener("click", () => {
     })
     .catch((err) => console.error("Error checking Bài 4:", err));
 });
+
+// Bài 5 - generate và check
+const genBtn = document.getElementById("generate5");
+const chkBtn = document.getElementById("check5");
+
+genBtn.addEventListener("click", () => {
+  const n = parseInt(document.getElementById("num-values5").value) || 5;
+  fetch("/generate5", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ n }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      // Hiển thị desc và nút kiểm tra
+      document.getElementById("desc5").style.display = "block";
+      chkBtn.style.display = "inline-block";
+
+      // Gán thông số cho câu a
+      document.getElementById("delta5").innerText = data.params.delta;
+      document.getElementById("alpha5").innerText = data.params.alpha_a;
+      document.getElementById("relation5").innerText = data.params.relation_a;
+      document.getElementById("a05").innerText = data.params.a0_a;
+
+      // Gán thông số cho câu b
+      document.getElementById("alpha5b").innerText = data.params.alpha_b;
+      document.getElementById("relation5b").innerText = data.params.relation_b;
+      document.getElementById("a05b").innerText = data.params.a0_b;
+
+      // Vẽ cả hai bảng X và n
+      ["table5", "table5b"].forEach((id) => {
+        const table = document.getElementById(id);
+        // clear old columns except first
+        table.querySelectorAll("thead tr").forEach((tr) => {
+          tr.querySelectorAll("th:not(:first-child)").forEach((th) =>
+            th.remove()
+          );
+        });
+        const xs = data.params.ranges.map((r) => `${r[0]} - ${r[1]}`);
+        const ns = data.params.ns;
+        const rows = table.querySelectorAll("thead tr");
+        xs.forEach((v) => {
+          const th = document.createElement("th");
+          th.innerText = v;
+          rows[0].appendChild(th);
+        });
+        ns.forEach((v) => {
+          const th = document.createElement("th");
+          th.innerText = v;
+          rows[1].appendChild(th);
+        });
+      });
+
+      // Lưu đáp án cho câu a
+      const zqs = data.intermediate.z_qs;
+      const z0 = data.intermediate.z0;
+      const relA = data.params.relation_a;
+      let corrA = "accept_H";
+      if (relA === "≠") corrA = Math.abs(zqs) > z0 ? "reject_H" : "accept_H";
+      else if (relA === ">") corrA = zqs > z0 ? "reject_H" : "accept_H";
+      else corrA = zqs < -z0 ? "reject_H" : "accept_H";
+      document.getElementById("zqs-5a").dataset.correct = zqs;
+      document.getElementById("z0-5a").dataset.correct = z0;
+      document.getElementById("conclusion-5a").dataset.correct = corrA;
+
+      // Lưu đáp án cho câu b
+      const tqs = data.intermediate.t_qs;
+      const t0b = data.intermediate.t0;
+      const relB = data.params.relation_b;
+      let corrB = "accept_H";
+      if (relB === "≠") corrB = Math.abs(tqs) > t0b ? "reject_H" : "accept_H";
+      else if (relB === ">") corrB = tqs > t0b ? "reject_H" : "accept_H";
+      else corrB = tqs < -t0b ? "reject_H" : "accept_H";
+      document.getElementById("tqs-5b").dataset.correct = tqs;
+      document.getElementById("t0-5b").dataset.correct = t0b;
+      document.getElementById("conclusion-5b").dataset.correct = corrB;
+
+      // reset inputs
+      [
+        "zqs-5a",
+        "z0-5a",
+        "conclusion-5a",
+        "tqs-5b",
+        "t0-5b",
+        "conclusion-5b",
+      ].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el.tagName === "SELECT") el.value = "reject_H";
+        else el.value = "";
+        el.style.backgroundColor = "";
+      });
+    });
+});
+
+// Bài 5 - check chung
+chkBtn.addEventListener("click", () => {
+  const ids = [
+    "zqs-5a",
+    "z0-5a",
+    "conclusion-5a",
+    "tqs-5b",
+    "t0-5b",
+    "conclusion-5b",
+  ];
+  const answers = ids.map((id) => document.getElementById(id).value);
+  const correct = ids.map((id) => document.getElementById(id).dataset.correct);
+  fetch("/check5", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ answers, correct_answers: correct }),
+  })
+    .then((res) => res.json())
+    .then((results) => {
+      ids.forEach((id, i) => {
+        document.getElementById(id).style.backgroundColor = results[i]
+          ? "lightgreen"
+          : "lightcoral";
+      });
+    });
+});
+
+// Bài 6 - generate
+document.getElementById("generate6").addEventListener("click", () => {
+  fetch("/generate6", { method: "POST" })
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("desc6").style.display = "block";
+      document.getElementById("check6").style.display = "inline-block";
+
+      // Hiển thị tham số
+      document.getElementById("p6").innerText = data.params.p6;
+      document.getElementById("relation6").innerText = data.params.relation6;
+      document.getElementById("alpha6").innerText = data.params.alpha6;
+      document.getElementById("n6").innerText = data.params.n6;
+      document.getElementById("m6").innerText = data.params.m6;
+
+      // Lưu đáp án để check
+      document.getElementById("zqs6").dataset.correct = data.intermediate.z_qs;
+      document.getElementById("z06").dataset.correct = data.intermediate.z0;
+      document.getElementById("conclusion6").dataset.correct =
+        data.intermediate.conclusion;
+
+      // Reset input
+      ["zqs6", "z06", "conclusion6"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el.tagName === "SELECT") el.value = "reject_H";
+        else el.value = "";
+        el.style.backgroundColor = "";
+      });
+    });
+});
+
+// Bài 6 - check
+document.getElementById("check6").addEventListener("click", () => {
+  const ua_zqs = document.getElementById("zqs6").value;
+  const ua_z0 = document.getElementById("z06").value;
+  const ua_concl = document.getElementById("conclusion6").value;
+
+  const ca = {
+    z_qs: parseFloat(document.getElementById("zqs6").dataset.correct),
+    z0: parseFloat(document.getElementById("z06").dataset.correct),
+    conclusion: document.getElementById("conclusion6").dataset.correct,
+  };
+
+  fetch("/check6", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      answers: [ua_zqs, ua_z0],
+      conclusion: ua_concl,
+      correct: ca,
+    }),
+  })
+    .then((res) => res.json())
+    .then((results) => {
+      ["zqs6", "z06", "conclusion6"].forEach((id, i) => {
+        document.getElementById(id).style.backgroundColor = results[i]
+          ? "lightgreen"
+          : "lightcoral";
+      });
+    });
+});
+
+// Bài 8 - generate
+document.getElementById("generate8").addEventListener("click", () => {
+  const n = parseInt(document.getElementById("num-values8").value) || 5;
+  fetch("/generate8", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ n }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("desc8").style.display = "block";
+      document.getElementById("check8").style.display = "inline-block";
+      // Vẽ động cột A và n
+      const table = document.getElementById("table8");
+      table
+        .querySelectorAll("thead tr")
+        .forEach((tr) =>
+          tr
+            .querySelectorAll("th:not(:first-child)")
+            .forEach((th) => th.remove())
+        );
+      const rows = table.querySelectorAll("thead tr");
+      data.params.ns.forEach((v, i) => {
+        const thA = document.createElement("th");
+        thA.innerText = `A${i + 1}`;
+        rows[0].appendChild(thA);
+        const thN = document.createElement("th");
+        thN.innerText = v;
+        rows[1].appendChild(thN);
+      });
+
+      // Hiển thị xác suất lý thuyết P(A_i)
+      document.getElementById("p8-list").innerText = data.params.ps
+        .map((p, i) => `P(A${i + 1})=${p.toFixed(2)}`)
+        .join(", ");
+
+      // Hiển thị tham số
+      document.getElementById("alpha8").innerText = data.params.alpha8;
+      // lưu đáp án
+      document.getElementById("chiqs8").dataset.correct =
+        data.intermediate.chisq;
+      document.getElementById("chi08").dataset.correct = data.intermediate.chi0;
+      document.getElementById("conclusion8").dataset.correct =
+        data.intermediate.conclusion;
+    });
+});
+
+// Bài 8 - check
+document.getElementById("check8").addEventListener("click", () => {
+  const ua = [
+    document.getElementById("chiqs8").value,
+    document.getElementById("chi08").value,
+  ];
+  const concl = document.getElementById("conclusion8").value;
+  const ca = {
+    chisq: parseFloat(document.getElementById("chiqs8").dataset.correct),
+    chi0: parseFloat(document.getElementById("chi08").dataset.correct),
+    conclusion: document.getElementById("conclusion8").dataset.correct,
+  };
+  fetch("/check8", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ answers: ua, conclusion: concl, correct: ca }),
+  })
+    .then((r) => r.json())
+    .then((res) => {
+      ["chiqs8", "chi08", "conclusion8"].forEach((id, i) => {
+        document.getElementById(id).style.backgroundColor = res[i]
+          ? "lightgreen"
+          : "lightcoral";
+      });
+    });
+});
+
+// Bài 8b - generate
+document.getElementById("generate8b").addEventListener("click", () => {
+  const n = parseInt(document.getElementById("num-values8b").value) || 5;
+  fetch("/generate8b", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ n }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      document.getElementById("desc8b").style.display = "block";
+      document.getElementById("check8b").style.display = "inline-block";
+      // vẽ bảng
+      const table = document.getElementById("table8b");
+      // clear old rows
+      table
+        .querySelectorAll("thead tr")
+        .forEach((tr) =>
+          tr
+            .querySelectorAll("th:not(:first-child)")
+            .forEach((th) => th.remove())
+        );
+      const rows = table.querySelectorAll("thead tr");
+      data.params.ns.forEach((ni, i) => {
+        const thA = document.createElement("th");
+        thA.innerText = `${data.params.a[i]} - ${data.params.a[i + 1]}`;
+        rows[0].appendChild(thA);
+        const thN = document.createElement("th");
+        thN.innerText = ni;
+        rows[1].appendChild(thN);
+      });
+      // hiển thị giả thuyết và tham số
+      let h = data.params.h8b;
+      if (h === "∈N(a,δ²)") {
+        h = `∈ N(${data.params.a_par}, ${data.params.delta2})`;
+      }
+      document.getElementById("h8b").innerText = h;
+      document.getElementById("alpha8b").innerText = data.params.alpha8b;
+      // lưu đáp án
+      document.getElementById("chiqs8b").dataset.correct =
+        data.intermediate.chisq;
+      document.getElementById("chi08b").dataset.correct =
+        data.intermediate.chi0;
+      document.getElementById("conclusion8b").dataset.correct =
+        data.intermediate.conclusion;
+      // reset inputs
+      ["chiqs8b", "chi08b", "conclusion8b"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el.tagName === "SELECT") el.value = "reject_H";
+        else el.value = "";
+        el.style.backgroundColor = "";
+      });
+    });
+});
+
+// Bài 8b - check
+document.getElementById("check8b").addEventListener("click", () => {
+  const ua = [
+    document.getElementById("chiqs8b").value,
+    document.getElementById("chi08b").value,
+  ];
+  const concl = document.getElementById("conclusion8b").value;
+  const ca = {
+    chisq: parseFloat(document.getElementById("chiqs8b").dataset.correct),
+    chi0: parseFloat(document.getElementById("chi08b").dataset.correct),
+    conclusion: document.getElementById("conclusion8b").dataset.correct,
+  };
+  fetch("/check8b", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ answers: ua, conclusion: concl, correct: ca }),
+  })
+    .then((r) => r.json())
+    .then((res) => {
+      ["chiqs8b", "chi08b", "conclusion8b"].forEach((id, i) => {
+        document.getElementById(id).style.backgroundColor = res[i]
+          ? "lightgreen"
+          : "lightcoral";
+      });
+    });
+});
