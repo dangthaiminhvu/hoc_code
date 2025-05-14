@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 ## Sử dụng
 
-1. Chạy ứng dụng Flask bằng cách thực thi tệp `app.py`:
+1. Chạy ứng dụng Flask bằng cách thực thi tệp `app.py`: (nhớ di chuyển vào mục chứa file app.py trước nhé cd .\math-exercise-generator\ )
    python src/app.py
 
 2. Mở trình duyệt và truy cập địa chỉ:
