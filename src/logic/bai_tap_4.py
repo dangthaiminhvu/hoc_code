@@ -26,16 +26,16 @@ def sinh_bai_tap_4(n, max_start=5, max_width=10):
     s_prime = math.sqrt(s2_unbiased)
     
     # 5) Chon cac do tin cay
-    gamma1 = round(random.uniform(0.01, 0.99), 4)
-    gamma2 = round(random.uniform(0.01, 0.99), 4)
-    gamma3 = round(random.uniform(0.01, 0.99), 4)
+    gamma1 = random.randint(1, 99)
+    gamma2 = random.randint(1, 99)
+    gamma3 = random.randint(1, 99)
     delta = round(random.choice([i/10 for i in range(1, 21)]), 1)
     
     # 6) Tinh cac thong so phan phoi
-    z0 = norm.ppf((1 + gamma1) / 2)
-    t0 = t.ppf((1 + gamma2) / 2, df=total_n - 1)
-    alpha1 = chi2.ppf((1 - gamma3) / 2, df=total_n - 1)
-    alpha2 = chi2.ppf((1 + gamma3) / 2, df=total_n - 1)
+    z0 = norm.ppf((1 + gamma1/100) / 2)
+    t0 = t.ppf((1 + gamma2/100) / 2, df=total_n - 1)
+    alpha1 = chi2.ppf((1 - gamma3/100) / 2, df=total_n - 1)
+    alpha2 = chi2.ppf((1 + gamma3/100) / 2, df=total_n - 1)
     
     # 7) Khoang tin cay
     ci_mean = (
