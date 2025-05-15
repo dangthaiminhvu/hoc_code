@@ -595,6 +595,10 @@ document.getElementById("generate8b").addEventListener("click", () => {
       let h = data.params.h8b;
       if (h === "∈N(a,δ²)") {
         h = `∈ N(${data.params.a_par}, ${data.params.delta2})`;
+      } else if (h === "có phân bố đều") {
+        const a0 = data.params.a[0];
+        const an = data.params.a[data.params.a.length - 1];
+        h = `có phân bố đều trên đoạn [${a0}, ${an}]`;
       }
       document.getElementById("h8b").innerText = h;
       document.getElementById("alpha8b").innerText = data.params.alpha8b;

@@ -50,7 +50,6 @@ def sinh_bai_tap_8b(n):
     # 6) Tính chi-squared
     chisq = sum((ni - ei) ** 2 / ei for ni, ei in zip(ns, Es))
     df = n - 1
-
     chi0 = chi2.ppf(1 - alpha / 100, df)
 
     # 7) Kết luận

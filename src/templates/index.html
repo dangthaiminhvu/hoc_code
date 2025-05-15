@@ -17,7 +17,7 @@
       <h2>Bài 1: Cho bảng sau, hãy tính giá trị x̄, s², s'² và s'</h2>
       <div>
         <label for="num-values1">Số lượng giá trị:</label>
-        <input type="number" id="num-values1" value="5" min="2" />
+        <input type="number" id="num-values1" value="5" min="2" max="10"/>
         <button id="generate1">Tạo Bài 1</button>
       </div>
       <table id="table1">
@@ -66,7 +66,7 @@
       <h2>Bài 3: Ước lượng điểm cho EX và DX</h2>
       <div>
         <label for="num-values3">Số lượng giá trị:</label>
-        <input type="number" id="num-values3" value="5" min="2" />
+        <input type="number" id="num-values3" value="5" min="2" max="10"/>
         <button id="generate3">Tạo Bài 3</button>
       </div>
       <table id="table3">
@@ -97,7 +97,7 @@
       <h2>Bài 4: Ước lượng khoảng cho EX và DX với X ∈ N(a,δ²)</h2>
       <div>
         <label for="num-values4">Số lượng giá trị:</label>
-        <input type="number" id="num-values4" value="5" min="2" />
+        <input type="number" id="num-values4" value="5" min="2" max="10"/>
         <button id="generate4">Tạo Bài 4</button>
       </div>
       <table id="table4">
@@ -136,7 +136,7 @@
       <h2>Bài 5: Kiểm định giả thuyết về giá trị trung bình</h2>
       <div>
         <label for="num-values5">Số lượng giá trị:</label>
-        <input type="number" id="num-values5" value="5" min="2" />
+        <input type="number" id="num-values5" value="5" min="2" max="10"/>
         <button id="generate5">Tạo Bài 5</button>
       </div>
       <div id="desc5" style="display:none; margin-top:1em;">
@@ -189,9 +189,9 @@
       <button id="check5" style="margin-left:1em; display:none;">Kiểm tra Bài 5</button>
     </section>
 
-    <!-- Bài 6: Kiểm định tỉ lệ điểm F -->
+    <!-- Bài 6: Kiểm định tỉ lệ -->
     <section id="bai6">
-      <h2>Bài 6: Kiểm định tỉ lệ điểm F</h2>
+      <h2>Bài 6: Kiểm định giả thuyết về tỷ lệ</h2>
       <div>
         <button id="generate6">Tạo Bài 6</button>
       </div>
@@ -216,16 +216,16 @@
       <button id="check6" style="display:none; margin-left:1em;">Kiểm tra Bài 6</button>
     </section>
 
-    <!-- Bài 8: Kiểm định phù hợp Khi‑bình phương -->
+    <!-- Bài 8: Kiểm định giả thuyết đối với hệ đầy đủ -->
     <section id="bai8">
-      <h2>Bài 8: Kiểm định phù hợp Khi‑bình phương</h2>
+      <h2>Bài 8: Kiểm định giả thuyết đối với hệ đầy đủ</h2>
       <div>
         <label for="num-values8">Số lượng biến cố:</label>
-        <input type="number" id="num-values8" value="5" min="2" />
+        <input type="number" id="num-values8" value="5" min="2" max="10"/>
         <button id="generate8">Tạo Bài 8</button>
       </div>
       <div id="desc8" style="display:none; margin-top:1em;">
-        <p>Cho biến cố A có phân phối đầy đủ.</p>
+        <p>Cho các biến cố A_i tạo thành 1 hệ đầy đủ.</p>
         <p>Bảng tần suất quan sát:</p>
         <table id="table8">
           <thead>
@@ -255,7 +255,7 @@
       <h2>Bài 8 b: Kiểm định phân bố của biến ngẫu nhiên</h2>
       <div>
         <label for="num-values8b">Số lượng khoảng:</label>
-        <input type="number" id="num-values8b" value="5" min="2" />
+        <input type="number" id="num-values8b" value="5" min="2" max="10"/>
         <button id="generate8b">Tạo Bài 8b</button>
       </div>
       <div id="desc8b" style="display:none; margin-top:1em;">
