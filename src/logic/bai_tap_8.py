@@ -3,7 +3,7 @@ from scipy.stats import chi2
 
 def sinh_bai_tap_8(n=5):
     # 1) Sinh n biến cố, tần suất ni
-    ns = [random.randint(10, 100) for _ in range(n)]
+    ns = [random.randint(10, 30) for _ in range(n)]
     N = sum(ns)
     # 2) Sinh p_i sao cho tổng =1, từng p_i chia hết .05
     # Phân phối gồm k bước đơn vị 0.05

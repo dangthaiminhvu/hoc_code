@@ -7,7 +7,7 @@ def sinh_bai_tap_6():
     q = 1 - p
     # Dùng tiếng Việt cho quan hệ
     relation = random.choice(['lớn hơn', 'nhỏ hơn', 'khác'])
-    alpha = round(random.randint(1, 20) / 100, 2)
+    alpha = random.randint(1, 20)
     n = random.randint(100, 500)
     m = random.randint(n//4, n//2)
 
@@ -16,9 +16,9 @@ def sinh_bai_tap_6():
     z_qs = (phat - p) / math.sqrt(p * q / n)
     # Chọn ngưỡng z0 theo quan hệ
     if relation == 'khác':
-        z0 = norm.ppf(1 - alpha/2)
+        z0 = norm.ppf(1 - alpha/200)
     else:
-        z0 = norm.ppf(1 - alpha)
+        z0 = norm.ppf(1 - alpha/100)
 
     # 3. Kết luận đúng dựa trên tiếng Việt
     if relation == 'khác':

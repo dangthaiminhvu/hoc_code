@@ -11,7 +11,7 @@ Trình tạo bài tập Toán học là một ứng dụng Python được thi�
 - **Phản hồi trực quan**: Các ô nhập liệu thay đổi màu sắc dựa trên độ chính xác của đáp án, cung cấp phản hồi ngay lập tức.
 - **Giao diện web hiện đại**: Sử dụng HTML, CSS và JavaScript để cung cấp giao diện thân thiện với người dùng.
 
-## Cấu trúc dự án
+## Cấu trúc dự án (chưa hoàn thiện)
 
 math-exercise-generator
 ├── src
@@ -20,7 +20,7 @@ math-exercise-generator
 │ │ ├── **init**.py
 │ │ ├── calculations.py # Logic Bài 1
 │ │ ├── bai_tap_2.py # Logic Bài 2
-│ │ └── bai_tap_3.py # Logic Bài 3 (Ước lượng điểm)
+│ │ ├── bai_tap_3.py # Logic Bài 3 (Ước lượng điểm)
 │ │ └── bai_tap_4.py # Logic Bài 4 (Ước lượng khoảng)
 │ ├── templates
 │ │ └── index.html # Giao diện chính (HTML) có 3 bài
