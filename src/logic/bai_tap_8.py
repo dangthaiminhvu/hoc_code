@@ -12,12 +12,12 @@ def sinh_bai_tap_8(n=5):
     cuts = [0] + cuts + [total_units]
     ps = [(cuts[i+1]-cuts[i])*0.05 for i in range(n)]
 
-    alpha = round(random.randint(1, 100) / 100, 2)
+    alpha = random.randint(1, 100)
 
     # 3) Tính chi-squared
     chisq = sum((ni - N*pi)**2/(N*pi) for ni, pi in zip(ns, ps))
     df = n - 1
-    chi0 = chi2.ppf(1 - alpha, df)
+    chi0 = chi2.ppf(1 - alpha/100, df)
 
     # 4) Kết luận
     conclusion = 'reject_H' if chisq > chi0 else 'accept_H'

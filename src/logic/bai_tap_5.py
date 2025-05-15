@@ -16,7 +16,7 @@ def sinh_bai_tap_5(n):
     delta = round(random.randint(1, 20) / 10, 1)  # 0.1 - 2.0
 
     # 2. Sinh tham số cho câu a
-    alpha_a = round(random.randint(1, 99) / 100, 2)
+    alpha_a = random.randint(1, 99)
     min_val = int((mean - 0.5) * 10)
     max_val = int((mean + 0.5) * 10)
     a0_a = round(random.randint(min_val, max_val) / 10, 1)
@@ -27,12 +27,12 @@ def sinh_bai_tap_5(n):
     # Tính z_qs và z0 cho câu a
     z_qs = (mean - a0_a) / (delta / math.sqrt(total_n))
     if kind_a == 1:
-        z0 = norm.ppf(1 - alpha_a/2)
+        z0 = norm.ppf(1 - alpha_a/200)
     else:
-        z0 = norm.ppf(1 - alpha_a)
+        z0 = norm.ppf(1 - alpha_a/100)
 
     # 3. Sinh tham số cho câu b
-    alpha_b = round(random.randint(1, 99) / 100, 2)
+    alpha_b = random.randint(1, 99)
     a0_b = round(random.randint(min_val, max_val) / 10, 1)
     kind_b = random.choice([1,2,3])
     relation_b = relation_map[kind_b]
@@ -44,9 +44,9 @@ def sinh_bai_tap_5(n):
     t_qs = (mean - a0_b) / (s_prime / math.sqrt(total_n))
     df = total_n - 1
     if kind_b == 1:
-        t0 = t.ppf(1 - alpha_b/2, df)
+        t0 = t.ppf(1 - alpha_b/200, df)
     else:
-        t0 = t.ppf(1 - alpha_b, df)
+        t0 = t.ppf(1 - alpha_b/100, df)
 
     return {
         'params': {
