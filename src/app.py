@@ -27,7 +27,7 @@ def index():
 
 # Bài 1: thống kê cơ bản
 def check_answers(ua, ca): 
-    return [abs(float(u) - float(c)) <= 1e-4 for u, c in zip(ua, ca)]
+    return [abs(float(u) - float(c)) <= 1e-3 for u, c in zip(ua, ca)]
 
 @app.route('/generate1', methods=['POST'])
 def generate1():
@@ -91,7 +91,7 @@ def check5():
             if i in (2, 5):
                 results.append(user_val == ca[i])
             else:
-                results.append(abs(float(user_val) - float(ca[i])) < 1e-4)
+                results.append(abs(float(user_val) - float(ca[i])) < 1e-3)
         except:
             results.append(False)
     return jsonify(results)
@@ -109,8 +109,8 @@ def check6():
     results = []
     # kiểm tra z_qs, z0
     try:
-        results.append(abs(float(ua[0]) - ca['z_qs']) < 1e-4)
-        results.append(abs(float(ua[1]) - ca['z0']) < 1e-4)
+        results.append(abs(float(ua[0]) - ca['z_qs']) < 1e-3)
+        results.append(abs(float(ua[1]) - ca['z0']) < 1e-3)
     except:
         results.extend([False, False])
     # kiểm tra kết luận
@@ -132,8 +132,8 @@ def check8():
     ca = request.json.get('correct', {})       # {'chisq','chi0','conclusion'}
     results = []
     try:
-        results.append(abs(float(answers[0]) - ca['chisq']) < 1e-4)
-        results.append(abs(float(answers[1]) - ca['chi0']) < 1e-4)
+        results.append(abs(float(answers[0]) - ca['chisq']) < 1e-3)
+        results.append(abs(float(answers[1]) - ca['chi0']) < 1e-3)
     except:
         results.extend([False, False])
     results.append(conclusion == ca['conclusion'])
@@ -153,8 +153,8 @@ def check8b():
     ca = request.json.get('correct', {})       # {'chisq','chi0','conclusion'}
     results = []
     try:
-        results.append(abs(float(answers[0]) - ca['chisq']) < 1e-4)
-        results.append(abs(float(answers[1]) - ca['chi0']) < 1e-4)
+        results.append(abs(float(answers[0]) - ca['chisq']) < 1e-3)
+        results.append(abs(float(answers[1]) - ca['chi0']) < 1e-3)
 
         print("Người dùng nhập:", answers[0])
         print("Đáp án đúng:", ca['chisq'])
